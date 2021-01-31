@@ -17,53 +17,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="script.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- スマホナビの表示・非表示 -->
-<script>
-$(function() {
-   const hum = $('#hamburger, .close')
-   const nav = $('.sp-nav')
-   hum.on('click', function(){
-      nav.toggleClass('toggle');
-   });
 
-    $('.faq-list-item').click(function() {
-    var $answer = $(this).find('.answer');
-    if($answer.hasClass('open')) { 
-        $answer.removeClass('open');
-        // slideUpメソッドを用いて、$answerを隠してください
-        $answer.slideUp();
-
-        // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-        $(this).find("span").text("+");
-        
-    } else {
-        $answer.addClass('open'); 
-        // slideDownメソッドを用いて、$answerを表示してください
-    $answer.slideDown();
-        
-        // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-        $(this).find("span").text("-");
-        
-    }
-    });
-    $(function(){
-    $('#myimg').on( 'swipe', mySwipeHandler );
-    function mySwipeHandler( evt ){
-    alert( '#myimg swiped.' );
-    }
-    });
-        $('a[href^="#"]').click(function() {
-          // スクロールの速度
-          var speed = 400; // ミリ秒で記述
-          var href= $(this).attr("href");
-          var target = $(href == "#" || href == "" ? 'html' : href);
-          var position = target.offset().top;
-          $('body,html').animate({scrollTop:position}, speed, 'swing');
-          return false;
-        });      
-});
-
-</script>
 </head>
 <body>
     <header>
@@ -321,6 +275,52 @@ $(function() {
     </footer>
     <script src="swiper-bundle.min.js"></script>
     <script>
+       <!-- スマホナビの表示・非表示 -->
+
+$(function() {
+   const hum = $('#hamburger, .close')
+   const nav = $('.sp-nav')
+   hum.on('click', function(){
+      nav.toggleClass('toggle');
+   });
+
+    $('.faq-list-item').click(function() {
+    var $answer = $(this).find('.answer');
+    if($answer.hasClass('open')) { 
+        $answer.removeClass('open');
+        // slideUpメソッドを用いて、$answerを隠してください
+        $answer.slideUp();
+
+        // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+        $(this).find("span").text("+");
+        
+    } else {
+        $answer.addClass('open'); 
+        // slideDownメソッドを用いて、$answerを表示してください
+    $answer.slideDown();
+        
+        // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
+        $(this).find("span").text("-");
+        
+    }
+    });
+    $(function(){
+    $('#myimg').on( 'swipe', mySwipeHandler );
+    function mySwipeHandler( evt ){
+    alert( '#myimg swiped.' );
+    }
+    });
+        $('a[href^="#"]').click(function() {
+          // スクロールの速度
+          var speed = 400; // ミリ秒で記述
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });      
+});
+
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
             breakpoints: {
